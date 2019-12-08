@@ -3,7 +3,7 @@
 """
 Created on Sat Dec  7 13:40:41 2019
 
-@author: wasp
+@author: Özgür ÖZTÜRK
 """
 
 import numpy as np
@@ -21,7 +21,7 @@ from scipy.stats import kruskal
 import seaborn as sns
 from scipy.stats.stats import pearsonr
 
-#p_value değeri küçüldükçe anlamlı fark artar 0.05 alırsak %95 güven aralığı 0.01 alırsak %99 güven aralığı deriz
+
 class Istatislik:
     def __init__(self):
       np.random.seed(5)
@@ -303,6 +303,7 @@ class Istatislik:
             
         
         if (spor_shapiro == 1 ) and (kosu_shapiro == 1 ) and (kislik_shapiro == 1 ) and (ayakkabi_levene == 1):
+	    #p_value değeri küçüldükçe anlamlı fark artar 0.05 alırsak %95 güven aralığı 0.01 alırsak %99 güven aralığı deriz
             varyans_analizi_result = float(f_oneway(ayakkabi['spor'],ayakkabi['kosu'],ayakkabi['kislik']).pvalue)
             if varyans_analizi_result < 0.05:
                 return "P_value değeri= " + str(varyans_analizi_result) + " olduğundan dolayı HO hipotezi(Üç oran arasında anlamlı bir farklılık yoktur) red edilir "
